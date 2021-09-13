@@ -46,5 +46,5 @@ app.use('/api/members', membersController);
 app.use('/api/movies', moviesController);
 app.use('/api/subscriptions', subscriptionsController)
 
-app.listen(process.env.PORT || 9000);
+app.listen(process.env.PORT || 8000);
 console.log('run server..');

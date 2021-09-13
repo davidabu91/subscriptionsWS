@@ -1,6 +1,5 @@
 const Movies = require('./moviesModel');
 
-const Key = 't1JrM1YUBKBT_1O31-SzLayafW0vAqqY'
 
 exports.getAll = function() {
 

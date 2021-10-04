@@ -23,7 +23,7 @@ router.route('/')
         try {
             let obj = req.body;
             let result = await membersBL.addMember(obj);
-
+            return resp.json(result);
         } catch (err) {
             return resp.json(err)
         }
@@ -49,6 +49,16 @@ router.route('/:id')
             return resp.json(result);
         } catch (err) {
             return resp.json(err)
+        }
+    })
+
+router.route('/')
+    .delete(async function(req, resp) {
+        try {
+            let result = await memberBL.deleteAll();
+            return resp.json(result);
+        } catch (err) {
+            return resp.json(err);
         }
     })
 

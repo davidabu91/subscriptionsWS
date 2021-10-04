@@ -30,45 +30,30 @@ exports.getMovie = function(id) {
 
 
 exports.addMovie = function(obj) {
-        try {
-            const newMovies = new Movies({
-                Name: obj.name,
-                Genres: obj.genres,
-                Image: obj.image,
-                Premiered: obj.premiered
-            })
+    try {
+        const newMovies = new Movies({
+            Name: obj.name,
+            Genres: obj.genres,
+            Image: obj.image,
+            Premiered: obj.premiered
+        })
 
-            newMovies.save(function(err) {
-                return new Promise((resolve, reject) => {
-                    if (err) {
-                        reject(err)
-                        console.log('err', err);
-                    } else {
-                        resolve('Created!')
-                        console.log('Created');
-                    }
-                })
+        newMovies.save(function(err) {
+            return new Promise((resolve, reject) => {
+                if (err) {
+                    reject(err)
+                    console.log('err', err);
+                } else {
+                    resolve('Created!')
+                    console.log('Created');
+                }
             })
-        } catch (err) {
-            console.log('addmovie error', err);
-        }
+        })
+    } catch (err) {
+        console.log('addmovie error', err);
     }
-    // const newMovies = new Movies({
-    //     Name: obj.name,
-    //     Genres: obj.genres,
-    //     Image: obj.image,
-    //     Premiered: obj.premiered
-    // })
+}
 
-// newMovies.save(function(err) {
-//     if (err) {
-//         reject(err)
-//         console.log('err', err);
-//     } else {
-//         resolve('Created!')
-//         console.log('Created');
-//     }
-// })
 
 
 

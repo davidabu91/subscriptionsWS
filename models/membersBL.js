@@ -46,6 +46,7 @@ exports.addMember = function(obj) {
                     resolve('Created!')
                     console.log('Created');
                 }
+
             })
 
         })
@@ -83,5 +84,19 @@ exports.deleteMember = function(id) {
                 resolve('Deleted')
             }
         })
+    })
+}
+
+exports.deleteAll = function() {
+
+    return new Promise((resolve, reject) => {
+        Members.deleteMany({}, function(err) {
+            if (err) {
+                reject(err)
+            } else {
+                resolve("Deleted")
+            }
+        });
+
     })
 }

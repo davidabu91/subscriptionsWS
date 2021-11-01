@@ -1,5 +1,6 @@
 const express = require('express');
 
+
 const moviesBL = require('../models/moviesBL');
 
 const router = express.Router();
@@ -51,6 +52,17 @@ router.route('/:id')
             return resp.json(err)
         }
     })
+
+
+
+router.route("/").delete(async function(req, res) {
+    try {
+        let result = await moviesBL.deleteAllMovies();
+        return res.json(result);
+    } catch (err) {
+        return res.json(err)
+    }
+});
 
 
 module.exports = router;

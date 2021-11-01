@@ -1,5 +1,6 @@
 const express = require('express');
 
+
 const membersBL = require('../models/membersBL');
 
 const router = express.Router();
@@ -52,15 +53,22 @@ router.route('/:id')
         }
     })
 
-router.route('/')
-    .delete(async function(req, resp) {
-        try {
-            let result = await memberBL.deleteAll();
-            return resp.json(result);
-        } catch (err) {
-            return resp.json(err);
-        }
-    })
+
+
+router.route("/").delete(async function(req, res) {
+    try {
+        let result = await membersBL.deleteAllMembers();
+        return res.json(result);
+    } catch (err) {
+        return res.json(err)
+    }
+});
+
+
+
+
+
+
 
 
 module.exports = router;

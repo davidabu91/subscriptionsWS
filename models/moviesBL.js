@@ -8,7 +8,8 @@ exports.getAll = function() {
             if (err) {
                 reject(err)
             } else {
-                resolve(movies)
+                resolve(movies);
+                console.log('length:', movies.length);
             }
         })
     })
@@ -82,6 +83,21 @@ exports.deleteMovie = function(id) {
                 reject(err)
             } else {
                 resolve('Deleted')
+            }
+        })
+    })
+}
+
+
+
+exports.deleteAllMovies = function(id) {
+
+    return new Promise((resolve, reject) => {
+        Movies.deleteMany({}, function(err) {
+            if (err) {
+                reject(err)
+            } else {
+                resolve('Deleted All')
             }
         })
     })

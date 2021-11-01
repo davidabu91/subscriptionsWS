@@ -7,7 +7,8 @@ exports.getAll = function() {
             if (err) {
                 reject(err)
             } else {
-                resolve(members)
+                resolve(members);
+                console.log('members:', members)
             }
         })
     })
@@ -87,16 +88,15 @@ exports.deleteMember = function(id) {
     })
 }
 
-exports.deleteAll = function() {
+exports.deleteAllMembers = function(id) {
 
     return new Promise((resolve, reject) => {
         Members.deleteMany({}, function(err) {
             if (err) {
                 reject(err)
             } else {
-                resolve("Deleted")
+                resolve('Deleted All')
             }
-        });
-
+        })
     })
 }

@@ -14,7 +14,7 @@ const startConroller = require('./controllers/startConroller');
 const app = express();
 
 app.use(cors({
-    origin: `http://localhost:3000`, //react's address
+    origin: `*`,
     credentials: true
 }));
 
